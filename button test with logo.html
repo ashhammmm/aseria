@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Launch Event</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            background: url('button background.png') no-repeat center center fixed; /* Updated background image */
+            background-size: cover; /* Cover the entire page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            background-color: #263e31; /* Deep green for the button */
+            background-image: url('button logo test.png'); /* Logo as background */
+            background-size: cover; /* Ensure logo covers the button area */
+            background-position: center; /* Center the logo */
+            color: transparent; /* Makes the button text invisible */
+            font-size: 32px;
+            width: 200px; /* Fixed size for a perfect circle */
+            height: 200px; /* Fixed size for a perfect circle */
+            cursor: pointer;
+            border: none;
+            border-radius: 50%; /* Ensures the button is a perfect circle */
+            outline: none;
+            box-shadow: 0 8px #005f2f, 0 -8px #66BB6A inset; /* Adjusted shadow colors for depth */
+            transition: box-shadow 0.2s, transform 0.2s; /* Smooth transition for pressing and releasing */
+        }
+        button:hover {
+            background-color: #1e4d28; /* Slightly darker shade for hover effect */
+        }
+        button:active {
+            box-shadow: 0 2px #005f2f, 0 -2px #66BB6A inset; /* Pressed effect */
+            transform: translateY(4px); /* Mimics the button being pressed down */
+        }
+    </style>
+</head>
+<body>
+    <button id="launchButton" onmousedown="pressButton()" onmouseup="releaseButton()">Launch Event</button>
+    <script>
+        function pressButton() {
+            var button = document.getElementById('launchButton');
+            button.style.boxShadow = '0 2px #005f2f, 0 -2px #66BB6A inset'; // Pressed effect
+            button.style.transform = 'translateY(4px)'; // Mimics the button being pressed down
+        }
+
+        function releaseButton() {
+            var button = document.getElementById('launchButton');
+            button.style.boxShadow = '0 8px #005f2f, 0 -8px #66BB6A inset'; // Original shadow
+            button.style.transform = 'translateY(0px)'; // Returns to original position
+        }
+    </script>
+</body>
+</html>
